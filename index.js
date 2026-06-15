@@ -9,8 +9,10 @@ app.use(express.json({ limit: '10mb' })); //incrementar el limite de string
 app.use(cors({ origin: 'http://localhost:4200' }));
 
 //Cargamos el modulo de direccionamiento de rutas 
-
+//punto 1
 app.use('/api/socio', require('./src/routes/socio.route.js'));
+//punto 2
+app.use('/api/transaccion', require('./src/routes/transaccion.route.js'));
 
 //setting 
 app.set('port', process.env.PORT || 3000);
