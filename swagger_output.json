@@ -1,0 +1,433 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API de Gestion- Practica Backend",
+    "description": "Documentacion para la Api de socios, Transacciones y publicaciones",
+    "version": "1.0."
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Socios",
+      "description": "Operaciones de CRUD y filtro para socios."
+    },
+    {
+      "name": "Transacciones",
+      "description": "Operaciones de registro e historico de traducciones."
+    },
+    {
+      "name": "Empleados",
+      "description": "Operaciones para la gestion de empleados."
+    },
+    {
+      "name": "Publicaciones",
+      "description": "Operaciones de CRUD y busqueda combinada de publicaciones."
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/socio/": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/socio/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/socio/activo": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/transaccion/": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/transaccion/email": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "emailCliente",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/transaccion/idioma/{idiomaOrigen}/{idiomaDestino}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "idiomaOrigen",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "idiomaDestino",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/empleado/": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/empleado/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/publicacion/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idEmpleado": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/publicacion/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/publicacion/busqueda": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "vigente",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Socio": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "example": "Damian"
+        },
+        "apellido": {
+          "type": "string",
+          "example": "Fernandez"
+        },
+        "foto": {
+          "type": "string",
+          "example": "https://imgs.search.brave.com/..."
+        },
+        "numeroSocio": {
+          "type": "number",
+          "example": 100
+        },
+        "activo": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    "Transaccion": {
+      "type": "object",
+      "properties": {
+        "idiomaOrigen": {
+          "type": "string",
+          "example": "Español"
+        },
+        "textoOrigen": {
+          "type": "string",
+          "example": "Hola, ¿cómo estás hoy?"
+        },
+        "idiomaDestino": {
+          "type": "string",
+          "example": "Inglés"
+        },
+        "textoDestino": {
+          "type": "string",
+          "example": "Hello, how are you today?"
+        },
+        "emailCliente": {
+          "type": "string",
+          "example": "juan.perez@gmail.com"
+        }
+      }
+    },
+    "Empleado": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "example": "Maria"
+        },
+        "apellido": {
+          "type": "string",
+          "example": "Perez"
+        },
+        "dni": {
+          "type": "string",
+          "example": "28987654"
+        },
+        "email": {
+          "type": "string",
+          "example": "maria.perez@hotmail.com"
+        }
+      }
+    },
+    "Publicacion": {
+      "type": "object",
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "example": "Nueva funcionalidad disponible"
+        },
+        "contenido": {
+          "type": "string",
+          "example": "Se agregó soporte para exportar reportes en formato PDF."
+        },
+        "imagenAsociada": {
+          "type": "string",
+          "example": "data:image/png;base64,iVBORw0KGgo..."
+        },
+        "fechaPublicacion": {
+          "type": "string",
+          "example": "2026-06-15"
+        },
+        "vigente": {
+          "type": "boolean",
+          "example": true
+        },
+        "idEmpleado": {
+          "type": "number",
+          "example": 2
+        }
+      }
+    }
+  }
+}
