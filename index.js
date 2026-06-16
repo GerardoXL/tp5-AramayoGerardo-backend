@@ -7,7 +7,9 @@ var app = express();
 //middlewares 
 app.use(express.json({ limit: '10mb' })); //incrementar el limite de Text 
 app.use(cors({ origin: 'http://localhost:4200' }));
-
+//cargamos swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger_output.json');
 //Cargamos el modulo de direccionamiento de rutas 
 //punto 1
 app.use('/api/socio', require('./src/routes/socio.route.js'));
@@ -18,6 +20,8 @@ app.use('/api/transaccion', require('./src/routes/transaccion.route.js'));
 app.use('/api/empleado', require('./src/routes/empleado.route.js'))
 app.use('/api/publicacion', require('./src/routes/publicacion.route.js'));
 
+//ruta documentacion
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 //setting 
 app.set('port', process.env.PORT || 3000);
 
