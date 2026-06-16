@@ -5,7 +5,7 @@ const sequelize = require('./config/database');
 var app = express();
 
 //middlewares 
-app.use(express.json({ limit: '10mb' })); //incrementar el limite de string 
+app.use(express.json({ limit: '10mb' })); //incrementar el limite de Text 
 app.use(cors({ origin: 'http://localhost:4200' }));
 
 //Cargamos el modulo de direccionamiento de rutas 
@@ -13,6 +13,10 @@ app.use(cors({ origin: 'http://localhost:4200' }));
 app.use('/api/socio', require('./src/routes/socio.route.js'));
 //punto 2
 app.use('/api/transaccion', require('./src/routes/transaccion.route.js'));
+
+//punto 3
+app.use('/api/empleado', require('./src/routes/empleado.route.js'))
+app.use('/api/publicacion', require('./src/routes/publicacion.route.js'));
 
 //setting 
 app.set('port', process.env.PORT || 3000);
