@@ -10,7 +10,7 @@ const Socio = sequelize.define('socio', {
         type: DataTypes.STRING,
         allowNull: false
     }, foto: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT, //text por que base64 genera una cadena muy larga y supera a STRING VARCHAR 255 caracteres
         allowNull: false
     },
     dni: {
